@@ -1,0 +1,15 @@
+
+//1// NEXT.js
+npm install next@latest react@latest react-dom@latest
+
+//2//
+copy to package.json folder:
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+
+//3//
+commande needed to open next.js on localhost: "npx next dev"
