@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+export const metadata = {
+    title: "Produkter",
+};
+
 async function getProducts(){
     const productsFetch = await fetch("https://jsonplaceholder.typicode.com/users");
     const products = await productsFetch.json();
