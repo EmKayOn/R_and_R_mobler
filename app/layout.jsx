@@ -1,18 +1,15 @@
-import Link from "next/link"
-import "./input.css"
+import Hero from "./components/Hero"
+import Footer from "./components/footer"
+import Navbar from "./components/navbar"
+import "./globals.css"
 
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body>
-                <h1>R&R</h1>
-                <nav>
-                    <Link href="/">Hem</Link>
-                    <Link href="/about">Om oss</Link>
-                    <Link href="/products">Produkter</Link>
-                </nav>
-                {children}
-                <footer>Footer</footer>
+                <Navbar />
+                <Hero />
+                <Footer />
             </body>
         </html>
     )
