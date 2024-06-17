@@ -1,4 +1,5 @@
 import Link from "next/link"
+import "./input.css"
 
 export default function RootLayout({ children }) {
     return (

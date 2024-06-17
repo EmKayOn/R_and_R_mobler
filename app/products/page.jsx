@@ -1,14 +1,8 @@
 import Link from "next/link";
+import { getSlug } from "../helpers/slugify";
+import { getProducts } from "../helpers/api";
 
-async function getProducts(){
-    const productsFetch = await fetch("https://jsonplaceholder.typicode.com/users");
-    const products = await productsFetch.json();
-    return products;
-}
 
-function getSlug(item){
-    return item.replace(/ /g, "_").replace(/\./g, "").toLowerCase()
-}
 
 export default async function Products() {
     const products = await getProducts();
