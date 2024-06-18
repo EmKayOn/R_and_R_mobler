@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getProducts } from "../helpers/api";
 import { getSlug } from "../helpers/slugify";
+
 export const metadata = {
     title: "Produkter",
 };
@@ -12,7 +13,6 @@ export default async function Products() {
     const products = await getProducts();
     return (
         <>
-            <h1>Produkter</h1>
             <ul>
                 {products.map( (products, index) => {
                     return (

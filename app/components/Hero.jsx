@@ -3,7 +3,8 @@ export default function Hero() {
         <>
         <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
         <div className="absolute inset-0">
-        <img src="/R_and_R_mobler/app/components/main.jpg" alt="Background Image" class="object-cover object-center w-full h-full" />
+        
+        <img src="https://i.ibb.co/MMTXwwm/main.jpg" alt="Background Image" class="object-cover object-center w-full h-full" />
         <div class="absolute inset-0 bg-black opacity-50"></div>
             <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
