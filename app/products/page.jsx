@@ -12,7 +12,7 @@ export default async function Products() {
         <>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 p-5">
                 {products.map((product, index) => (
-                    <li key={index} className="p-4">
+                    <li key={index} className="p-5">
                         <div className="max-w-2xl mx-auto">
                             <div className="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
                                 <Link href={`/products/${getSlug(product.name)}`}>
