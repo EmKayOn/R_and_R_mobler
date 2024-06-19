@@ -7,8 +7,6 @@ export default async function Product({params}) {
     return (
         <>
             
-            <h1>{product.name}</h1>
-            <h2>{product.email}</h2>
             
         </>
     )
