@@ -1,19 +1,39 @@
+import Image from "next/image"
+
 export default function Hero() {
     return (
         <>
-        <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
-        <div className="absolute inset-0">
+        <section>
         
-        <img src="https://i.ibb.co/MMTXwwm/main.jpg" alt="Background Image" class="object-cover object-center w-full h-full" />
-        <div class="absolute inset-0 bg-black opacity-5"></div>
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+            <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
+                <Image
+                            alt="HeroImg"
+                            src='/HeroImg.png' width={500} height={500}
+                            
+                />
+            </div>
+
+            <div className="lg:py-24">
+                <h2 className="text-3xl font-bold sm:text-4xl">Förvandla ditt hem med Elegant Möbler</h2>
+
+                <p className="mt-4 text-gray-600">
+                Upptäck den perfekta blandningen av komfort och stil med vår exklusiva kollektion. Från tidlösa klassiker till moderna mästerverk, vi har något för varje smak.
+                </p>
+
+                <a
+                href="/products"
+                className="mt-8 inline-block rounded  bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                >
+                Handla Nu
+                </a>
+            </div>
+            </div>
         </div>
-        
-        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-            <h1 className="text-5xl font-bold leading-tight mb-5">Välkommen till R&R Möbler</h1>
-            <p className="text-lg text-gray-100 mb-8">Där stil möter komfort! Utforska vårt noggrant utvalda sortiment av möbler som förvandlar ditt hem till en oas av skönhet och funktionalitet.</p>
-        </div>
-        </div>
+        </section>
+
         </>
     )
 }
+
