@@ -11,6 +11,5 @@ export async function getProducts(){
 export async function getProduct(name){
     const products = await getProducts();
     const product = products.filter(item => getSlug(name) === getSlug(item.title))[0];
-    console.log(product);
     return product;
 }

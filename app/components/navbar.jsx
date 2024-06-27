@@ -4,7 +4,7 @@ import Image from "next/image"
 export default function Navbar(){
     return (
         <>
-        <header className="bg-white">
+        <header className="bg-white sticky py-2 top-0 z-50 shadow-md">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                 <div className="md:flex md:items-center md:gap-12">
@@ -19,15 +19,15 @@ export default function Navbar(){
                     <nav aria-label="Global">
                     <ul className="flex items-center gap-6 text-sm">
                         <li>
-                        <Link className="text-gray-500 transition hover:text-gray-500/75" href="/about"> Om Oss </Link>
+                        <Link className="text-gray-700 transition hover:text-gray-500/75" href="/about"> Om Oss </Link>
                         </li>
 
                         <li>
-                        <Link className="text-gray-500 transition hover:text-gray-500/75" href="/catagories" > Catagories </Link>
+                        <Link className="text-gray-700 transition hover:text-gray-500/75" href="/catagories" > Catagories </Link>
                         </li>
 
                         <li>
-                        <Link className="text-gray-500 transition hover:text-gray-500/75" href="/products"> Produkter </Link>
+                        <Link className="text-gray-700 transition hover:text-gray-500/75" href="/products"> Produkter </Link>
                         </li>
 
                     </ul>
@@ -36,19 +36,13 @@ export default function Navbar(){
 
                 <div className="flex items-center gap-4">
                     <div className="sm:flex sm:gap-4">
-                    <a
-                        className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                        href="#"
-                    >
-                        Login
-                    </a>
 
                     <div className="hidden sm:flex">
                         <a
                         className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
                         href="#"
                         >
-                        Register
+                        Logga in/Register
                         </a>
                     </div>
                     </div>
@@ -69,9 +63,6 @@ export default function Navbar(){
                     </div>
                 </div>
                 </div>
-                            <span className="flex items-center">
-                <span className="h-px flex-1 bg-black"></span>
-            </span>
             </div>
             </header>
 
