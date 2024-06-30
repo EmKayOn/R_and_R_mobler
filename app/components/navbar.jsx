@@ -1,8 +1,24 @@
+'use client'
 import Link from "next/link"
 import Image from "next/image"
+import { ShoppingCart } from "lucide-react"
+import {    
+    ClerkProvider,
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton,
+    useUser} from "@clerk/nextjs"
+import { useEffect, useState } from "react"
+
 
 export default function Navbar(){
-    return (
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(()=>{
+        setIsLoggedIn(window.location.href.toString().includes('sign-in'))
+    },[])
+    const user = useUser();
+    return !isLoggedIn && (
         <>
         <header className="bg-white sticky py-2 top-0 z-50 shadow-md">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -37,13 +53,14 @@ export default function Navbar(){
                 <div className="flex items-center gap-4">
                     <div className="sm:flex sm:gap-4">
 
-                    <div className="hidden sm:flex">
-                        <a
-                        className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                        href="#"
-                        >
-                        Logga in/Register
-                        </a>
+                    <div className="flex items-center gap-5">
+                        <SignedOut>
+                            <SignInButton/>
+                        </SignedOut>
+                        <SignedIn>
+                            <h2 className="flex gap-1 cursor-pointer"><ShoppingCart/>(0)</h2>
+                            <UserButton />
+                        </SignedIn>
                     </div>
                     </div>
 
@@ -65,10 +82,6 @@ export default function Navbar(){
                 </div>
             </div>
             </header>
-
-
-
-
         </>
     )
 }

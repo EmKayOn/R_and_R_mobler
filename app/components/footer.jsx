@@ -1,14 +1,14 @@
+'use client'
 import Image from "next/image"
+import { useState, useEffect } from "react"
+
+
 export default function Footer () {
-    return (
-        <>
-{/*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/}
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(()=>{
+        setIsLoggedIn(window.location.href.toString().includes('sign-in'))
+    },[])
+    return !isLoggedIn && (
         <footer className="bg-white">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="lg:flex lg:items-start lg:gap-8">
@@ -266,6 +266,5 @@ export default function Footer () {
         </div>
         </footer>
 
-        </>
     )
 }
