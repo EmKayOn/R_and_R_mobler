@@ -8,16 +8,51 @@ import {
     SignedIn,
     SignedOut,
     UserButton,
+    UserProfile,
+    useClerk,
     useUser} from "@clerk/nextjs"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { CartContext } from "../_context/CartContext"
+import CartApis from "../_utils/CartApis"
+
+
+
 
 
 export default function Navbar(){
+    const { user }= useUser();
+    
+    //sign-in
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     useEffect(()=>{
         setIsLoggedIn(window.location.href.toString().includes('sign-in'))
     },[])
-    const user = useUser();
+    
+    //context-cart///////////
+    const {cart, setCart} = useContext(CartContext)
+    ///////If user is authenticated fetch cart//////
+
+    useEffect(()=>{
+        user&&getCartItems();
+    },[user])
+    const getCartItems = ()=>{
+
+            CartApis.getUserCartItems(user.primaryEmailAddress.emailAddress)
+            .then((res) => {
+                console.log('Response from cart items:', res?.data?.data);
+                res?.data?.data.forEach(citem=>{
+                    setCart((oldCart)=>[
+                        ...oldCart,
+                        {
+                            id: citem.id,
+                            product: citem?.attributes?.product?.data[0]
+                        }
+                    ])
+                })
+            })
+    }
+    //////////
+
     return !isLoggedIn && (
         <>
         <header className="bg-white sticky py-2 top-0 z-50 shadow-md">
@@ -58,7 +93,7 @@ export default function Navbar(){
                             <SignInButton/>
                         </SignedOut>
                         <SignedIn>
-                            <h2 className="flex gap-1 cursor-pointer"><ShoppingCart/>(0)</h2>
+                            <h2 className="flex gap-1 cursor-pointer"><ShoppingCart/>({cart?.length})</h2>
                             <UserButton />
                         </SignedIn>
                     </div>

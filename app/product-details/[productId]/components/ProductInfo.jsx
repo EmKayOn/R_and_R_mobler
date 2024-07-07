@@ -1,12 +1,14 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import { AlertOctagon, BadgeCheck, Link, ShoppingCart } from 'lucide-react'
 import SkelitonProductInfo from './SkelitonProductInfo'
 import { useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import CartApis from '../../../_utils/CartApis'
+import { CartContext } from '../../../_context/CartContext'
 
 function ProductInfo({product}) {
+    const {cart, setCart} = useContext(CartContext)
     const { user } = useUser();
     const router = useRouter();
     const handleAddToCart = ()=>{
@@ -14,14 +16,21 @@ function ProductInfo({product}) {
             router.push('/sign-in')
         }else{
             const data = {
-                data:{
-                    userName: user.fullName,
+                data: {
+                    username: user.fullName,
                     email: user.primaryEmailAddress.emailAddress,
                     products: [product?.id]
                 }
             }
             CartApis.addToCart(data).then(res=>{
-                console.log('cart created successfully')
+                console.log('cart created successfully', res.data.data)
+                setCart(oldCart=>[
+                    ...oldCart,
+                    {
+                        id:res?.data?.data?.id,
+                        product
+                    }
+                ])
             }).catch(error=>{
                 console.log('error', error)
             })

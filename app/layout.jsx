@@ -13,6 +13,7 @@ const inter = Roboto({ subsets : ["latin"], weight : "700"})
 
 export default function RootLayout({ children }) {
     const [cart, setCart] = useState([]);
+    
     return (
         <ClerkProvider>
             <CartContext.Provider value={{cart, setCart}}>

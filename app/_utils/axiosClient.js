@@ -1,7 +1,7 @@
-import axios from "axios";
 
+const {default: axios} = require('axios')
 
-const apiKey=process.env.NEXT_PUBLIC_REAST_API_KEY;
+const apiKey=process.env.NEXT_PUBLIC_REST_API_KEY;
 const apiUrl='http://localhost:1337/api'
 
 const axiosClient = axios.create({
@@ -10,4 +10,4 @@ const axiosClient = axios.create({
         Authorization: `Bearer ${apiKey}`
     }
 });
-export default axiosClient;
+export default axiosClient
