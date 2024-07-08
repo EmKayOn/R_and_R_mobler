@@ -28,7 +28,7 @@ function ProductInfo({product}) {
                     ...oldCart,
                     {
                         id:res?.data?.data?.id,
-                        product
+                        product:product
                     }
                 ])
             }).catch(error=>{

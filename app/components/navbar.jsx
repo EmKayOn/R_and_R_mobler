@@ -14,6 +14,7 @@ import {
 import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../_context/CartContext"
 import CartApis from "../_utils/CartApis"
+import Cart from "./Cart"
 
 
 
@@ -28,9 +29,8 @@ export default function Navbar(){
         setIsLoggedIn(window.location.href.toString().includes('sign-in'))
     },[])
     
-    //context-cart///////////
     const {cart, setCart} = useContext(CartContext)
-    ///////If user is authenticated fetch cart//////
+    const [openCart, setOpenCart] = useState(false)
 
     useEffect(()=>{
         user&&getCartItems();
@@ -45,7 +45,7 @@ export default function Navbar(){
                         ...oldCart,
                         {
                             id: citem.id,
-                            product: citem?.attributes?.product?.data[0]
+                            product: citem?.attributes?.products?.data[0]
                         }
                     ])
                 })
@@ -93,9 +93,15 @@ export default function Navbar(){
                             <SignInButton/>
                         </SignedOut>
                         <SignedIn>
-                            <h2 className="flex gap-1 cursor-pointer"><ShoppingCart/>({cart?.length})</h2>
+                            <h2 className="flex gap-1 cursor-pointer">
+                                <ShoppingCart onClick={()=>setOpenCart(!openCart)}/>
+                                ({cart?.length})
+                                </h2>
+                            {openCart && <Cart />}
                             <UserButton />
+                            
                         </SignedIn>
+                        
                     </div>
                     </div>
 
