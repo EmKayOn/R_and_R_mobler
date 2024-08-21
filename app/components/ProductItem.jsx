@@ -17,7 +17,7 @@ function ProductItem({product}) {
                 <h2 className='text-[12px] font-medium line-clamp-1'>{product?.attributes?.title}</h2>
                 <h2 className='text-[10px] text-gray-400 flex gap-1 items-center'>
                     <List className='w-4 h-4' />
-                    {product?.attributes?.categories}
+                    {product?.attributes?.category}
                 </h2>
             </div>
             <h2>{product?.attributes?.price}</h2>

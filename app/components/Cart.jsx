@@ -34,8 +34,8 @@ function Cart() {
 
                     <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                         <div>
-                        <dt className="inline">kategori:</dt>
-                        <dd className="inline">{item?.product?.attributes?.categories}</dd>
+                        <dt className="inline">kategory:</dt>
+                        <dd className="inline">{item?.product?.attributes?.category}</dd>
                         </div>
 
                         <div>

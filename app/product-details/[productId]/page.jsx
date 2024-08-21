@@ -26,7 +26,7 @@ function productDetails({params}) {
             })
 
     const getProductListByCategory = (product)=>{
-        ProductApis.getProductsByCategory(product?.attributes.categories)
+        ProductApis.getProductsByCategory(product?.attributes.category)
             .then(res=>{
             console.log(res?.data?.data)
             setProductList(res?.data?.data)     
