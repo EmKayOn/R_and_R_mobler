@@ -41,7 +41,7 @@ function ProductInfo({product}) {
             {product?.id ? 
                 <div className='ml-4 mt-4'>
                     <h2 className='text-[20px]'>{product?.attributes?.title}</h2>
-                    <h2 className='text-[15px] text-gray-400'>{product?.attributes?.categories}</h2>
+                    <h2 className='text-[15px] text-gray-400'>{product?.attributes?.category}</h2>
                     <h2 className='text-[11px] mt-5'>{product?.attributes?.description[0]?.children[0].text}</h2>
                     <h2 className='text-[11px] text-gray-500 flex gap-2 items-center mt-6'>{product?.attributes?.finnsILager ? <BadgeCheck className='text-green-500 h-5 w-5 '/> : <AlertOctagon className='text-red-500 h-5 w-5 ' />}Finns I Lager</h2>
                     <h2 className='text-[32px] text-teal-500 mt-2 r'>{product?.attributes?.price} Kr</h2>
